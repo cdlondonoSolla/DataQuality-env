@@ -31,4 +31,5 @@ check de persona fisica = a nif 13 & clase imp 13 OK
 6- Se envia el informe al coordinador del area con los indicadores generados
 7- Se envian los errores al equipo de DM para realizar las correcciones en la data
 
-![image](https://github.com/user-attachments/assets/3370451a-e09b-4c7c-8a8d-e8516b99f5b7)
+![image](https://github.com/user-attachments/assets/16392b43-9ff9-4327-898a-7a3ee8f060f6)
+
