@@ -32,3 +32,6 @@ nif 5 no este vacio
 los numeros de telefono no tengan guiones (-)
 las direcciones no tengan caracteres especiales (# - grados N`)
 check de persona fisica = a nif 13 & clase imp 13
+
+![image](https://github.com/user-attachments/assets/3370451a-e09b-4c7c-8a8d-e8516b99f5b7)
+
