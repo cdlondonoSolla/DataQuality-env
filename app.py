@@ -1,28 +1,8 @@
-import subprocess
-
-
-#Ejecutar aplicacion runVbs.py
-print("Ejecutando runVbs.py...")
-resultado_app = subprocess.run(['python', 'runVbs.py'], capture_output=True, text=True)
-
-if resultado_app.returncode == 0:
-    print("runVbs.py ejecutado exitosamente")
-else:
-    print("Error al ejecutar runVbs.py: ")
-    print(resultado_app.stderr)
-
-
-
-
-from closeExcel import cerrar_excel
-cerrar_excel()
-
-import time
-time.sleep(2)
-
-
 # Importar funciones de otros archivos
 from fileConverter import convertirArchivo
+from eliminate import eliminar_directorio
+from tempProcessor import tempProcessor
+from fileProcessor import file_processor
 
 
 '''Ejecuta Funciones de fileConverter'''
@@ -36,9 +16,12 @@ carpeta_csv = "data/temp/"
 # Llamar a la función
 convertirArchivo(carpeta_xlsx, carpeta_csv)
 
+# Llamamos la funcion para procesar archivos temp
+tempProcessor()
+file_processor()
 
 # Eliminar rutas
-from eliminate import eliminar_directorio
+#eliminar_directorio('data/raw/')
 
-eliminar_directorio('data/raw/')
+print('Proceso Terminado')
 
