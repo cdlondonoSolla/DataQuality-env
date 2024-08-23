@@ -54,6 +54,4 @@ session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = client(i) & ".xlsx"
 session.findById("wnd[1]/tbar[0]/btn[0]").press
 
 
-
-
 Next 'i
