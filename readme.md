@@ -18,7 +18,7 @@ logica del proceso:
 3- se cargan los modelos en un dataframe mediante pandas  
 4- se aplican reglas de negocio descritas a continuacion.
 
-<VALIDACIONES>  
+VALIDACIONES  
 se debede validar que:  
 tratamiento empresa no tenga clase de impuestos pn OK  
 tratamiento empresa no tenga tipo nif <> 31 OK  
