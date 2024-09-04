@@ -32,5 +32,3 @@ check de persona fisica = a nif 13 & clase imp 13 OK
 7- Se envian los errores al equipo de DM para realizar las correcciones en la data
 
 ![image](image.png)
-
-
