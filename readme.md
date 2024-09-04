@@ -26,10 +26,10 @@ tratamiento empresa no tenga medios magneticos (nombre3 y nombre4) OK
 nif 5 no este vacio OK  
 los numeros de telefono no tengan guiones (-) OK  
 las direcciones no tengan caracteres especiales (# - grados N`) OK  
-check de persona fisica = a nif 13 & clase imp 13 OK  
-  
+check de persona fisica = a nif 13 & clase imp 13 OK
+
 5- Se genera informe y graficos con las anomalias encontradas  
 6- Se envia el informe al coordinador del area con los indicadores generados  
-7- Se envian los errores al equipo de DM para realizar las correcciones en la data  
-  
+7- Se envian los errores al equipo de DM para realizar las correcciones en la data
+
 ![image](image.png)
