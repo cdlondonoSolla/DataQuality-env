@@ -1,6 +1,9 @@
 import pandas as pd
 import numpy as np
 from .path import folder_paths
+from .client import sys_user_crea as cli
+from .provider import sys_user_crea as prov
+
 
 path = folder_paths()
 
@@ -13,6 +16,7 @@ def count_processor():
 
     path = folder_paths()
     
+    # General Data
     ruta_kna1 = f'{path.ruta_temp}kna1.csv'
     df_kna1 = pd.read_csv(ruta_kna1)
     conteo_Cliente = df_kna1['Cliente'].count()
@@ -34,46 +38,25 @@ def count_processor():
     conteo_lfb1 = df_lfb1['Acreedor'].count()
     
     
+    # Client Data Result
     
-    
-    result_kna1 = f'{path.ruta_final}result_kna1.csv'
+    result_kna1 = f'{path.ruta_process}result_kna1.csv'
     df_kna1_error = pd.read_csv(result_kna1)
     df_kna1_error['result'] = df_kna1_error['tratamiento_x_claseImpto'] | df_kna1_error['tratamiento_x_nif'] | df_kna1_error['tratamiento_x_medMag'] | df_kna1_error['error_nif5'] | df_kna1_error['error_telefono'] | df_kna1_error['error_telefono_vacio'] | df_kna1_error['error_calle'] | df_kna1_error['error_personaFisica']    
     conteo_kna1_error = df_kna1_error['result'].sum()
     
+    cli()
+    cli_system_crea, cli_user_crea = cli()
+    #Provider Data Result
     
-    """USER SYSTEM COMPARISON"""
+    result_lfa1 = f'{path.ruta_process}result_lfa1.csv'
+    df_lfa1_error = pd.read_csv(result_lfa1)
+    df_lfa1_error['result'] = df_lfa1_error['tratamiento_x_claseImpto'] | df_lfa1_error['tratamiento_x_nif'] | df_lfa1_error['tratamiento_x_medMag'] | df_lfa1_error['error_nif5'] | df_lfa1_error['error_telefono'] | df_lfa1_error['error_telefono_vacio'] | df_lfa1_error['error_calle'] | df_lfa1_error['error_personaFisica']    
+    conteo_lfa1_error = df_lfa1_error['result'].sum()
     
-    data = {
-    'cliente': [],
-    'creado_por': []
-    }
-    
-    df_userXsystem = pd.DataFrame(data)
-    
-    ruta_kna1 = f'{path.ruta_temp}kna1.csv'
-    df_kna1 = pd.read_csv(ruta_kna1)
-    
-    df_userXsystem['cliente'] = df_kna1['Cliente']
-    
-    # la cantidad de clientes creados automaticamente
+    prov()
+    prov_system_crea, prov_user_crea = prov()
 
-    cond1 = df_kna1['Creado por'] == 'USERRFC8'
-    cond2 = df_kna1['Grupo de cuentas'] == 'D006'
-
-    df_userXsystem['creado_por'] = np.where(cond1 | cond2,'system','user')
-    
-    create_system = df_userXsystem['creado_por'].str.contains('system', case=False, na=False)
-    create_user = df_userXsystem['creado_por'].str.contains('user', case=False, na=False)
-    
-    # Aplicar el filtro al DataFrame
-    create_system = df_userXsystem[create_system].count()
-    create_user = df_userXsystem[create_user].count()
-    
-    """END"""
-    
-    system_crea = create_system['creado_por']
-    user_crea = create_user['creado_por']
     
     conteo_marc = 0
 
@@ -82,10 +65,10 @@ def count_processor():
     'maestro': ['cliente', 'proveedor', 'material'],
     'creacion': [conteo_Cliente, conteo_Acreedor, conteo_Material],
     'actualizacion': [conteo_knb1, conteo_lfb1, 0],
-    'error': [conteo_kna1_error, 0, 0],
+    'error': [conteo_kna1_error, conteo_lfa1_error, 0],
     'total': [conteo_Cliente+ conteo_knb1, conteo_Acreedor + conteo_lfb1, conteo_Material + conteo_marc],
-    'system': [system_crea, 0, 0],
-    'user': [user_crea, 0, 0]
+    'system': [cli_system_crea, prov_system_crea, 0],
+    'user': [cli_user_crea, prov_user_crea, 0]
     }
     conteo_registros = pd.DataFrame(conteo_registros)
     conteo_registros.to_csv(f'{path.ruta_final}/count.csv', index=False)

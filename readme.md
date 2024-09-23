@@ -19,6 +19,19 @@ logica del proceso:
 4- se aplican reglas de negocio descritas a continuacion.
 
 VALIDACIONES  
+filtrar por los siguientes grupos de cuenta:
+D001 Clientes Nacionales
+D002 Clientes Exterior
+D003 Clientes Transportadores
+D004 Clientes compañias vinculadas
+D005 Deudores financieros
+D006 Deudores empleados
+D007 Deudores accionistas
+D010 Deudores ocasionales
+D014 Clientes Subsidiarias
+D018 Clientes Empresarias
+D019 Clientes Express
+
 se debede validar que:  
 tratamiento empresa no tenga clase de impuestos pn OK  
 tratamiento empresa no tenga tipo nif <> 31 OK  
@@ -26,7 +39,23 @@ tratamiento empresa no tenga medios magneticos (nombre3 y nombre4) OK
 nif 5 no este vacio OK  
 los numeros de telefono no tengan guiones (-) OK  
 las direcciones no tengan caracteres especiales (# - grados N`) OK  
-check de persona fisica = a nif 13 & clase imp 13 OK
+check de persona fisica = a nif 13 & clase imp 13 OK  
+Validar si el ramo esta vacio OK
+
+<Pendientes_Paola>
+Indicadores de calidad:
+acumulado de todo el año
+creaciones, actualizaciones, errores
+guardar el historico para todo el año (data wharehouse)
+<El dataframe que ya existe = al dataframe actual + la informacion nueva>
+ese archivo se borra y se vuelve a subir con la informacion historica + actual.
+
+<MATERIALES>
+Construir especificaciones para Calidad de Materiales
+Datos que revisa Liliana Gonzales
+(Peso neto y peso bruto internos)
+(Unidad de medida de pedido y ventas)
+(Pendiente EAN)
 
 5- Se genera informe y graficos con las anomalias encontradas  
 6- Se envia el informe al coordinador del area con los indicadores generados  
