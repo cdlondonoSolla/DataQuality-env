@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 from datetime import datetime
 from path import folder_paths
+import os
 
 
 
@@ -62,12 +63,23 @@ def historic():
         df_final['system'] = df_final['system'].astype(int)
         df_final['user'] = df_final['user'].astype(int)
         
-        df_final_concat = pd.read_csv(f'{path.ruta_historic}historic_{name_maestro[i]}.csv')
+        # Ruta del archivo CSV
+        ruta_csv = f'{path.ruta_historic}historic_{name_maestro[i]}.csv'
+
+        # Verificar si el archivo existe
+        if os.path.exists(ruta_csv):
+            # Cargar el CSV en un DataFrame
+            df_final_concat = pd.read_csv(ruta_csv)
+        else:
+            df_final_concat = pd.DataFrame(data)
+        
+        
         df_final_concat = pd.concat([df_final_concat, df_final], ignore_index=True)
 
 
-        df_final_concat.to_csv(f'{path.ruta_historic}/historic_{name_maestro[i]}.csv', index=False)
+        df_final_concat.to_csv(f'{path.ruta_historic}historic_{name_maestro[i]}.csv', index=False)
         
         i = i + 1
     
-    
+
+historic()
