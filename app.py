@@ -9,6 +9,7 @@ from dataProccessor.indicator import client_indicator
 from dataProccessor.path import folder_paths
 from dataProccessor.client import client
 from dataProccessor.provider import provider
+from dataProccessor.historic import historic
 
 path = folder_paths()
 
@@ -19,7 +20,7 @@ client()
 provider()
 count_processor()
 client_indicator()
-
+historic()
 
 
 
