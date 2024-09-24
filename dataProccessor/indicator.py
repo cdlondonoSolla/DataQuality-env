@@ -47,15 +47,32 @@ def client_indicator():
     provider_correct_total = provider_count_total - provider_error_total
     provider_indicator = (provider_error_total/provider_count_total)
     provider_indicator = f'{provider_indicator:.6f}'
+    
+    # Materials
+    
+    # Capturar la cantidad de errores encontrados en data
+    result_mara = f'{path.ruta_process}result_mara.csv'
+    df_mara_error = pd.read_csv(result_mara)
+    df_mara_error['result'] = df_mara_error['error_nombre']
+    material_error_total = df_mara_error['result'].sum()
+    
+    # Capturar la cantidad de registros creados o modificados en el periodo
+    material_count = f'{path.ruta_final}count.csv'
+    df_material_count = pd.read_csv(material_count)
+    id_buscado = 1
+    material_count_total = df_material_count[df_material_count['id'] == id_buscado]['total'].values[0]
+    material_correct_total = material_count_total - material_error_total
+    material_indicator = (material_error_total/material_count_total)
+    material_indicator = f'{material_indicator:.6f}'
 
     
     df_client_indicator = {
-        'id': [1, 2],
-        'master': ['client', 'provider'],
-        'correct': [client_correct_total, provider_correct_total],
-        'error': [client_error_total, provider_error_total],
-        'total': [client_count_total, provider_count_total],
-        'indicator': [client_indicator, provider_indicator]
+        'id': [1, 2, 3],
+        'master': ['client', 'provider', 'material'],
+        'correct': [client_correct_total, provider_correct_total, material_correct_total],
+        'error': [client_error_total, provider_error_total, material_error_total],
+        'total': [client_count_total, provider_count_total, material_count_total],
+        'indicator': [client_indicator, provider_indicator, material_indicator]
     }
 
     df_client_indicator = pd.DataFrame(df_client_indicator)

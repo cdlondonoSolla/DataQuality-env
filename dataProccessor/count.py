@@ -61,6 +61,12 @@ def count_processor():
     prov()
     prov_system_crea, prov_user_crea = prov()
 
+    # Material Data Result
+
+    result_mara = f'{path.ruta_process}result_mara.csv'
+    df_mara_error = pd.read_csv(result_mara)
+    df_mara_error['result'] = df_mara_error['error_nombre']    
+    conteo_mara_error = df_mara_error['result'].sum() 
     
 
     conteo_registros = {
@@ -68,7 +74,7 @@ def count_processor():
     'maestro': ['cliente', 'proveedor', 'material'],
     'creacion': [conteo_Cliente, conteo_Acreedor, conteo_Material],
     'actualizacion': [conteo_knb1, conteo_lfb1, conteo_mara2],
-    'error': [conteo_kna1_error, conteo_lfa1_error, 0],
+    'error': [conteo_kna1_error, conteo_lfa1_error, conteo_mara_error],
     'total': [conteo_Cliente+ conteo_knb1, conteo_Acreedor + conteo_lfb1, conteo_Material + conteo_mara2],
     'system': [cli_system_crea, prov_system_crea, 0],
     'user': [cli_user_crea, prov_user_crea, conteo_Material]

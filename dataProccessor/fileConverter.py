@@ -2,13 +2,6 @@ import os
 import pandas as pd
 from .path import folder_paths
 
-path = folder_paths()
-
-path.ruta_temp
-path.ruta_general_tables
-path.ruta_raw
-
-
 def convertirArchivo():
     
     path = folder_paths()
@@ -51,4 +44,7 @@ def convertirArchivo():
     print("Conversión completada para todos los archivos .xlsx en la carpeta.")
     
 
-convertirArchivo()
+def archivo_converter():
+    convertirArchivo()
+
+archivo_converter()
