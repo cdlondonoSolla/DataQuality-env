@@ -14,7 +14,7 @@ from dataProccessor.historic import historic
 path = folder_paths()
 
 
-#convertirArchivo()
+convertirArchivo()
 
 client()
 provider()
@@ -25,10 +25,10 @@ historic()
 
 
 # Eliminar rutas
-#eliminar_directorio('D:/Usuarios/cdlondono/OneDrive - Corporativo/ETL/DataQuality/process/temp/')
+eliminar_directorio('D:/Usuarios/cdlondono/OneDrive - Corporativo/ETL/DataQuality/process/temp/')
 
 # Ejemplo de uso
-#crear_carpeta("D:/Usuarios/cdlondono/OneDrive - Corporativo/ETL/DataQuality/process/temp")
+crear_carpeta("D:/Usuarios/cdlondono/OneDrive - Corporativo/ETL/DataQuality/process/temp")
 
 
 print('Proceso Terminado')

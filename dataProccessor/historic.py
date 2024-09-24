@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 from datetime import datetime
-from path import folder_paths
+from .path import folder_paths
 import os
 
 
@@ -15,10 +15,10 @@ def historic():
 
 
     now = datetime.now()
+    day = now.day
     month = now.month
     year = now.year
-    month_name = now.strftime('%B')
-    full_date = f'{month_name}_{str(year)}'
+    full_date = f'{month}/{year}'
 
     ruta_count = f'{path.ruta_final}count.csv'
 

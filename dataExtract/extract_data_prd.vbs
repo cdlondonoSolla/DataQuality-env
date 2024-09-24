@@ -111,15 +111,15 @@ For i=0 To UBound(tabla)
       End If
 
 
-'    'Export the results into Excel format
-'       session.findById("wnd[0]/usr/cntlRESULT_LIST/shellcont/shell").pressToolbarContextButton "&MB_EXPORT"
-'       session.findById("wnd[0]/usr/cntlRESULT_LIST/shellcont/shell").selectContextMenuItem "&XXL"
-'       session.findById("wnd[1]/tbar[0]/btn[0]").press
+   'Export the results into Excel format
+      session.findById("wnd[0]/usr/cntlRESULT_LIST/shellcont/shell").pressToolbarContextButton "&MB_EXPORT"
+      session.findById("wnd[0]/usr/cntlRESULT_LIST/shellcont/shell").selectContextMenuItem "&XXL"
+      session.findById("wnd[1]/tbar[0]/btn[0]").press
 
-'    'Select the directory where the file is going to be downloaded
-'       session.findById("wnd[1]/usr/ctxtDY_PATH").text = "D:\Usuarios\cdlondono\Downloads\04. Proyectos\PYTHON\DataQuality-env\data\raw"
-'       session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = LCase(tabla(i)) & ".xlsx"
-'       session.findById("wnd[1]/tbar[0]/btn[0]").press
+   'Select the directory where the file is going to be downloaded
+      session.findById("wnd[1]/usr/ctxtDY_PATH").text = "D:\Usuarios\cdlondono\Downloads\04. Proyectos\PYTHON\DataQuality-env\data\raw"
+      session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = LCase(tabla(i)) & ".xlsx"
+      session.findById("wnd[1]/tbar[0]/btn[0]").press
 
 
    
