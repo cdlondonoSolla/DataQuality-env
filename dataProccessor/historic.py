@@ -15,7 +15,6 @@ def historic():
 
 
     now = datetime.now()
-    day = now.day
     month = now.month
     year = now.year
     full_date = f'{month}/{year}'
@@ -74,7 +73,7 @@ def historic():
             df_final_concat = pd.DataFrame(data)
         
         
-        df_final_concat = pd.concat([df_final_concat, df_final], ignore_index=True)
+        df_final_concat = pd.concat([df_final_concat, df_final], ignore_index=True).drop_duplicates()
 
 
         df_final_concat.to_csv(f'{path.ruta_historic}historic_{name_maestro[i]}.csv', index=False)

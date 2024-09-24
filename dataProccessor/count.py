@@ -29,6 +29,10 @@ def count_processor():
     df_mara = pd.read_csv(ruta_mara)
     conteo_Material = df_mara['Material'].count()
     
+    ruta_mara2 = f'{path.ruta_temp}mara2.csv'
+    df_mara2 = pd.read_csv(ruta_mara2)
+    conteo_mara2 = df_mara2['Material'].count()
+    
     ruta_knb1 = f'{path.ruta_temp}knb1.csv'
     df_knb1 = pd.read_csv(ruta_knb1)
     conteo_knb1 = df_knb1['Cliente'].count()
@@ -58,17 +62,16 @@ def count_processor():
     prov_system_crea, prov_user_crea = prov()
 
     
-    conteo_marc = 0
 
     conteo_registros = {
     'id': [1, 2, 3],
     'maestro': ['cliente', 'proveedor', 'material'],
     'creacion': [conteo_Cliente, conteo_Acreedor, conteo_Material],
-    'actualizacion': [conteo_knb1, conteo_lfb1, 0],
+    'actualizacion': [conteo_knb1, conteo_lfb1, conteo_mara2],
     'error': [conteo_kna1_error, conteo_lfa1_error, 0],
-    'total': [conteo_Cliente+ conteo_knb1, conteo_Acreedor + conteo_lfb1, conteo_Material + conteo_marc],
+    'total': [conteo_Cliente+ conteo_knb1, conteo_Acreedor + conteo_lfb1, conteo_Material + conteo_mara2],
     'system': [cli_system_crea, prov_system_crea, 0],
-    'user': [cli_user_crea, prov_user_crea, 0]
+    'user': [cli_user_crea, prov_user_crea, conteo_Material]
     }
     conteo_registros = pd.DataFrame(conteo_registros)
     conteo_registros.to_csv(f'{path.ruta_final}/count.csv', index=False)
