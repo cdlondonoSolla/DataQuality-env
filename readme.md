@@ -61,4 +61,4 @@ Datos que revisa Liliana Gonzales
 6- Se envia el informe al coordinador del area con los indicadores generados  
 7- Se envian los errores al equipo de DM para realizar las correcciones en la data
 
-![image](image.png)
+![image](images/image.png)

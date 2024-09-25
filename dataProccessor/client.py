@@ -195,6 +195,7 @@ def client_processor():
     resultado_seleccionado = resultado[vista]
 
     resultado_seleccionado.to_csv(f'{path.ruta_process}/result_kna1.csv', index=False)
+    resultado_seleccionado.to_csv(f'{path.ruta_final}/result_kna1.csv', index=False)
     
 
 def client_count_error ():

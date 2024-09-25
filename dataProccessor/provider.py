@@ -183,6 +183,7 @@ def provider_processor():
     resultado_seleccionado = resultado[vista]
 
     resultado_seleccionado.to_csv(f'{path.ruta_process}/result_lfa1.csv', index=False)
+    resultado_seleccionado.to_csv(f'{path.ruta_final}/result_lfa1.csv', index=False)
 
 
 def provider_count_error ():

@@ -42,6 +42,7 @@ def material_procesor():
     result_mara = mara[vista]
 
     result_mara.to_csv(f'{path.ruta_process}/result_mara.csv', index=False)
+    result_mara.to_csv(f'{path.ruta_final}/result_mara.csv', index=False)
 
     
     return()
